@@ -1,0 +1,6 @@
+{
+  "name": "Grocery Gallery",
+  "description": "Fresh Groceries. Better Prices. Delivered to Your Door. Premium Online Grocery Store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

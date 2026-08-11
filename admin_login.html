@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal Login — Grocery Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#2D2D22] text-[#E8E8DF] min-h-screen flex items-center justify-center p-4 selection:bg-[#D4A373] selection:text-[#2D2D22]">
+
+  <div class="w-full max-w-md bg-[#3F3F2D]/90 backdrop-blur-xl border border-[#5A5A40] rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+    
+    <!-- Top Decorative Line -->
+    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#D4A373] via-[#E8E8DF] to-[#5A5A40]"></div>
+
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 bg-[#5A5A40] text-white rounded-2xl flex items-center justify-center text-3xl shadow-lg mx-auto mb-4 border border-[#6E6E50]">
+        🛒
+      </div>
+      <h1 class="text-2xl font-normal font-serif tracking-tight text-white">Grocery Gallery Admin</h1>
+      <p class="text-[#B5B3A5] text-xs mt-1 font-medium">Management Control Panel Access</p>
+    </div>
+
+    <!-- ERROR ALERT BOX -->
+    <div id="login-error" class="hidden mb-6 bg-red-500/10 border border-red-500/30 text-red-300 text-xs font-semibold p-3.5 rounded-xl text-center">
+      Invalid username or password.
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="admin-login-form" class="space-y-5">
+      <div>
+        <label class="block text-xs font-bold text-[#E8E8DF] uppercase tracking-wider mb-2">Username</label>
+        <input 
+          type="text" 
+          id="admin-username" 
+          required 
+          autocomplete="off"
+          placeholder="Enter admin username" 
+          class="w-full bg-[#2D2D22]/80 border border-[#5A5A40] rounded-xl px-4 py-3 text-sm text-white placeholder-[#828073] focus:outline-none focus:ring-2 focus:ring-[#D4A373] focus:border-transparent transition-all"
+        />
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-[#E8E8DF] uppercase tracking-wider mb-2">Password</label>
+        <div class="relative">
+          <input 
+            type="password" 
+            id="admin-password" 
+            required 
+            placeholder="Enter admin password" 
+            class="w-full bg-[#2D2D22]/80 border border-[#5A5A40] rounded-xl pl-4 pr-10 py-3 text-sm text-white placeholder-[#828073] focus:outline-none focus:ring-2 focus:ring-[#D4A373] focus:border-transparent transition-all"
+          />
+          <button type="button" id="toggle-login-pass" class="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#B5B3A5] hover:text-white cursor-pointer px-1">🙈</button>
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        id="login-submit-btn"
+        class="w-full bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2 cursor-pointer mt-2"
+      >
+        <span>Login to Dashboard</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </button>
+    </form>
+
+    <div class="mt-8 pt-6 border-t border-[#5A5A40]/60 text-center">
+      <a href="index.html" class="text-xs font-semibold text-[#D4A373] hover:text-[#E8E8DF] transition-colors inline-flex items-center gap-1.5">
+        ← Back to Customer Storefront
+      </a>
+    </div>
+
+  </div>
+
+  <script src="admin_login.js"></script>
+</body>
+</html>

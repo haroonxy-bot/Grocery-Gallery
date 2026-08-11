@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grocery Gallery — Fresh Groceries Delivered To Your Door</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#FDFCF9] text-[#2A2A24] font-sans antialiased selection:bg-[#5A5A40] selection:text-white">
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="bg-[#3F3F2D] text-[#E8E8DF] text-xs py-2 px-4 text-center font-medium tracking-wide">
+    🎉 Free Express Delivery on Orders Over Rs. 2,000 | Cash on Delivery Available Across Pakistan 🇵🇰
+  </div>
+
+  <!-- ==================== GLASS HEADER ==================== -->
+  <header class="sticky top-0 z-40 glass-header shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 bg-[#5A5A40] text-white rounded-2xl flex items-center justify-center text-2xl shadow-md group-hover:scale-105 transition-transform duration-200">
+          🛒
+        </div>
+        <div>
+          <span class="text-2xl font-black font-serif tracking-tight text-[#2A2A24] block leading-none">
+            Grocery<span class="text-[#5A5A40]">Gallery</span>
+          </span>
+          <span class="text-[11px] font-bold text-[#66665C] tracking-wider uppercase">Fresh & Natural</span>
+        </div>
+      </a>
+
+      <!-- NAVIGATION LINKS -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#3F3F2D]">
+        <a href="#home" class="hover:text-[#5A5A40] transition-colors">Home</a>
+        <a href="#categories" class="hover:text-[#5A5A40] transition-colors">Categories</a>
+        <a href="#products" class="hover:text-[#5A5A40] transition-colors">Shop</a>
+        <a href="#offers" class="hover:text-[#5A5A40] transition-colors">Offers</a>
+        <a href="#about" class="hover:text-[#5A5A40] transition-colors">About Us</a>
+        <a href="#contact" class="hover:text-[#5A5A40] transition-colors">Contact</a>
+      </nav>
+
+      <!-- SEARCH BAR WITH SECRET ADMIN SHORTCUT -->
+      <div class="flex-1 max-w-xs md:max-w-sm">
+        <form id="search-form" class="relative">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search groceries, fruits..." 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] text-[#2A2A24] text-sm rounded-full pl-10 pr-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#5A5A40] focus:bg-white transition-all shadow-inner"
+          />
+          <svg class="w-4 h-4 text-[#A8A598] absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="hero-gradient text-white relative overflow-hidden py-16 lg:py-24">
+    <div class="hero-pattern absolute inset-0 opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-[#2D2D22]/80 backdrop-blur-md border border-[#D4A373]/30 text-[#D4A373] text-xs font-semibold px-4 py-1.5 rounded-full">
+          <span>🌿 100% Organic & Farm Fresh Guaranteed</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal font-serif tracking-tight leading-tight">
+          Fresh Groceries <br class="hidden sm:inline" />Delivered To Your Door
+        </h1>
+        <p class="text-[#E8E8DF] text-base sm:text-lg max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+          Shop fresh fruits, vegetables, beverages, snacks and everyday grocery essentials at affordable prices. Order in seconds via WhatsApp with fast Cash on Delivery across Pakistan.
+        </p>
+        
+        <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+          <a href="#products" class="bg-[#D4A373] hover:bg-[#C29263] text-[#2D2D22] font-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 flex items-center gap-3 text-base">
+            <span>Shop Now</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+          <a href="#offers" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-4 rounded-2xl transition-all text-base">
+            View Special Offers
+          </a>
+        </div>
+
+        <!-- HIGHLIGHT BADGES -->
+        <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/20 text-center">
+          <div>
+            <span class="text-2xl font-bold font-serif text-[#D4A373] block">30 Mins</span>
+            <span class="text-xs text-[#E8E8DF] font-medium">Express Local Delivery</span>
+          </div>
+          <div>
+            <span class="text-2xl font-bold font-serif text-[#D4A373] block">Rs. 0</span>
+            <span class="text-xs text-[#E8E8DF] font-medium">Hidden Charges</span>
+          </div>
+          <div>
+            <span class="text-2xl font-bold font-serif text-[#D4A373] block">100% COD</span>
+            <span class="text-xs text-[#E8E8DF] font-medium">Pay Upon Receipt</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HERO VISUAL CARDS -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-2xl space-y-4">
+          <div class="bg-white rounded-2xl p-4 text-[#2A2A24] shadow-md flex items-center gap-4">
+            <span class="text-4xl">🍎</span>
+            <div>
+              <h4 class="font-bold text-base font-serif">Red Delicious Apples</h4>
+              <p class="text-xs text-[#66665C]">Farm Fresh • High Vitamin C</p>
+              <span class="text-[#5A5A40] font-extrabold text-sm">Rs. 450 / kg</span>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-4 text-[#2A2A24] shadow-md flex items-center gap-4">
+            <span class="text-4xl">🌾</span>
+            <div>
+              <h4 class="font-bold text-base font-serif">Super Basmati Rice</h4>
+              <p class="text-xs text-[#66665C]">Aromatic Long Grain</p>
+              <span class="text-[#5A5A40] font-extrabold text-sm">Rs. 380 / kg</span>
+            </div>
+          </div>
+          <div class="bg-[#2D2D22]/80 text-[#E8E8DF] rounded-2xl p-4 text-center border border-[#D4A373]/30 text-xs font-semibold">
+            ⚡ Quick WhatsApp Ordering — No Credit Card Needed!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CATEGORIES SECTION ==================== -->
+  <section id="categories" class="py-12 bg-[#FDFCF9] border-b border-[#E5E3DC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-normal font-serif text-[#2A2A24]">Browse By Category</h2>
+          <p class="text-[#66665C] text-sm mt-1">Select a category to filter fresh products</p>
+        </div>
+      </div>
+
+      <!-- CATEGORY BUTTONS -->
+      <div class="flex flex-wrap items-center gap-3">
+        <button class="cat-btn active font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="All">
+          <span>🛒</span> All Products
+        </button>
+        <button class="cat-btn font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="Fruits">
+          <span>🍎</span> Fruits
+        </button>
+        <button class="cat-btn font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="Vegetables">
+          <span>🥦</span> Vegetables
+        </button>
+        <button class="cat-btn font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="Drinks">
+          <span>🥤</span> Drinks
+        </button>
+        <button class="cat-btn font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="Snacks">
+          <span>🍪</span> Snacks
+        </button>
+        <button class="cat-btn font-bold px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs" data-category="Groceries">
+          <span>🛒</span> Groceries
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT DISPLAY SECTION ==================== -->
+  <section id="products" class="py-12 bg-[#F7F6F0]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-normal font-serif text-[#2A2A24]">Featured Groceries</h2>
+          <p class="text-[#66665C] text-sm mt-1">Fresh items updated daily in real-time</p>
+        </div>
+      </div>
+
+      <!-- PRODUCT GRID -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Products dynamically rendered from localStorage via script.js -->
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-[#E5E3DC] shadow-xs max-w-lg mx-auto">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-xl font-bold font-serif text-[#2A2A24]">No products found.</h3>
+        <p class="text-[#66665C] text-sm mt-2 max-w-xs mx-auto">Try searching for a different keyword or select another category.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SPECIAL OFFERS BANNER ==================== -->
+  <section id="offers" class="py-12 bg-[#5A5A40] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-gradient-to-r from-[#3F3F2D] to-[#5A5A40] rounded-3xl p-8 lg:p-12 border border-[#D4A373]/30 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
+        <div class="space-y-4 text-center lg:text-left">
+          <span class="bg-[#D4A373] text-[#2A2A24] font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+            🔥 Weekend Flash Sale
+          </span>
+          <h3 class="text-3xl sm:text-4xl font-normal font-serif">Save Up To 25% On Essential Groceries!</h3>
+          <p class="text-[#E8E8DF] max-w-xl text-sm sm:text-base">
+            Get discount pricing on cooking oil, basmati rice, supreme tea, and fresh seasonal fruits this weekend.
+          </p>
+        </div>
+        <a href="#products" class="bg-white text-[#5A5A40] hover:bg-[#F4F3EB] font-bold px-8 py-4 rounded-2xl shadow-lg transition-all text-sm whitespace-nowrap">
+          Claim Deals Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT US SECTION ==================== -->
+  <section id="about" class="py-16 bg-[#FDFCF9] border-t border-[#E5E3DC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[#D4A373] font-bold text-xs uppercase tracking-wider block mb-2">Our Promise</span>
+        <h2 class="text-3xl font-normal font-serif text-[#2A2A24] leading-tight">Your Trusted Neighborhood Online Grocery Store</h2>
+        <p class="text-[#66665C] mt-4 leading-relaxed text-sm sm:text-base">
+          Grocery Gallery was established with a singular mission: to provide families across Pakistan with instant access to fresh, hygienic, and affordable daily food essentials without leaving their home.
+        </p>
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="p-4 bg-[#F7F6F0] rounded-2xl border border-[#E5E3DC]">
+            <span class="text-2xl font-bold font-serif text-[#5A5A40]">100% Fresh</span>
+            <p class="text-xs text-[#66665C] mt-1">Sourced daily from certified local farms</p>
+          </div>
+          <div class="p-4 bg-[#F7F6F0] rounded-2xl border border-[#E5E3DC]">
+            <span class="text-2xl font-bold font-serif text-[#5A5A40]">Best Rates</span>
+            <p class="text-xs text-[#66665C] mt-1">Unmatched retail pricing with zero markups</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#F4F3EB] rounded-3xl p-8 border border-[#E5E3DC] text-center space-y-4">
+        <div class="text-6xl">🚚</div>
+        <h3 class="text-2xl font-normal font-serif text-[#2A2A24]">Direct WhatsApp Dispatch</h3>
+        <p class="text-[#66665C] text-sm leading-relaxed">
+          Skip complex website checkouts. Click "Order Now", enter your delivery address, and instantly confirm your grocery order directly with our dispatcher on WhatsApp!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT US SECTION ==================== -->
+  <section id="contact" class="py-16 bg-[#2D2D22] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-normal font-serif">Get In Touch With Us</h2>
+        <p class="text-[#B5B3A5] text-sm mt-2">Have a question or custom bulk grocery request? Reach out directly!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#3F3F2D] p-6 rounded-2xl border border-[#5A5A40] text-center">
+          <div class="w-12 h-12 bg-[#5A5A40] text-white rounded-xl flex items-center justify-center text-xl mx-auto mb-4">📞</div>
+          <h4 class="font-bold text-lg mb-1 font-serif">WhatsApp Helpline</h4>
+          <p class="text-[#D4A373] font-semibold text-sm">+92 300 1234567</p>
+          <p class="text-[#B5B3A5] text-xs mt-1">Available 8:00 AM - 10:00 PM</p>
+        </div>
+        <div class="bg-[#3F3F2D] p-6 rounded-2xl border border-[#5A5A40] text-center">
+          <div class="w-12 h-12 bg-[#5A5A40] text-white rounded-xl flex items-center justify-center text-xl mx-auto mb-4">📧</div>
+          <h4 class="font-bold text-lg mb-1 font-serif">Email Support</h4>
+          <p class="text-[#D4A373] font-semibold text-sm">support@grocerygallery.pk</p>
+          <p class="text-[#B5B3A5] text-xs mt-1">24/7 Response Time</p>
+        </div>
+        <div class="bg-[#3F3F2D] p-6 rounded-2xl border border-[#5A5A40] text-center">
+          <div class="w-12 h-12 bg-[#5A5A40] text-white rounded-xl flex items-center justify-center text-xl mx-auto mb-4">📍</div>
+          <h4 class="font-bold text-lg mb-1 font-serif">Main Warehouse</h4>
+          <p class="text-white font-semibold text-sm">Gulberg III, Lahore, Pakistan</p>
+          <p class="text-[#B5B3A5] text-xs mt-1">Express Distribution Hub</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#1A1A14] text-[#B5B3A5] py-12 border-t border-[#3F3F2D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="space-y-3">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="text-2xl">🛒</span>
+          <span class="text-xl font-bold font-serif text-white">Grocery<span class="text-[#D4A373]">Gallery</span></span>
+        </a>
+        <p class="text-xs text-[#B5B3A5] leading-relaxed">
+          Fresh Groceries. Better Prices. Delivered to Your Door.
+        </p>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold text-sm mb-3">Quick Links</h5>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#home" class="hover:text-[#D4A373]">Home</a></li>
+          <li><a href="#categories" class="hover:text-[#D4A373]">Categories</a></li>
+          <li><a href="#products" class="hover:text-[#D4A373]">Shop Products</a></li>
+          <li><a href="#offers" class="hover:text-[#D4A373]">Special Offers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold text-sm mb-3">Customer Support</h5>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#about" class="hover:text-[#D4A373]">About Us</a></li>
+          <li><a href="#contact" class="hover:text-[#D4A373]">Contact Us</a></li>
+          <li><a href="#about" class="hover:text-[#D4A373]">Delivery Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-bold text-sm mb-3">Connect With Us</h5>
+        <div class="flex gap-3 text-lg">
+          <a href="#" class="w-9 h-9 bg-[#2D2D22] hover:bg-[#5A5A40] text-white rounded-lg flex items-center justify-center transition-colors">💬</a>
+          <a href="#" class="w-9 h-9 bg-[#2D2D22] hover:bg-[#5A5A40] text-white rounded-lg flex items-center justify-center transition-colors">📘</a>
+          <a href="#" class="w-9 h-9 bg-[#2D2D22] hover:bg-[#5A5A40] text-white rounded-lg flex items-center justify-center transition-colors">📸</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-[#2D2D22] pt-6 text-center text-xs text-[#828073]">
+      © 2026 Grocery Gallery. All Rights Reserved. Designed for University Project Demonstration.
+    </div>
+  </footer>
+
+  <!-- ==================== PRODUCT DETAIL MODAL ==================== -->
+  <div id="product-detail-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative overflow-hidden">
+      <button class="close-modal-btn absolute top-4 right-4 w-9 h-9 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] rounded-full flex items-center justify-center font-bold text-lg cursor-pointer">
+        ✕
+      </button>
+
+      <div class="w-full h-56 bg-[#F7F6F0] rounded-2xl overflow-hidden mb-5 border border-[#E5E3DC]">
+        <img id="detail-img" src="" alt="Product" class="w-full h-full object-cover" />
+      </div>
+
+      <span id="detail-category" class="badge-category mb-2"></span>
+      <h2 id="detail-title" class="text-2xl font-normal font-serif text-[#2A2A24] mt-1"></h2>
+
+      <div class="my-4 p-4 bg-[#F7F6F0] rounded-2xl border border-[#E5E3DC] space-y-2">
+        <div class="flex justify-between items-center text-sm">
+          <span class="text-[#66665C] font-medium">Selling Price:</span>
+          <span id="detail-price" class="text-xl font-extrabold text-[#5A5A40]"></span>
+        </div>
+        <div class="flex justify-between items-center text-sm">
+          <span class="text-[#66665C] font-medium">Delivery Charge:</span>
+          <span id="detail-delivery" class="font-bold text-[#2A2A24]"></span>
+        </div>
+        <div class="flex justify-between items-center text-sm">
+          <span class="text-[#66665C] font-medium">Available Stock:</span>
+          <span id="detail-stock" class="font-bold text-[#5A5A40]"></span>
+        </div>
+        <div class="flex justify-between items-center text-sm border-t border-[#E5E3DC] pt-2">
+          <span class="text-[#66665C] font-medium">Payment Method:</span>
+          <span id="detail-option" class="badge-delivery"></span>
+        </div>
+      </div>
+
+      <button id="detail-order-btn" class="w-full bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg transition-all text-base cursor-pointer">
+        ORDER NOW
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== ORDER FORM MODAL ==================== -->
+  <div id="order-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+      <button class="close-modal-btn absolute top-4 right-4 w-9 h-9 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] rounded-full flex items-center justify-center font-bold text-lg cursor-pointer">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-[#E8E8DF] text-[#5A5A40] rounded-xl flex items-center justify-center text-xl font-bold border border-[#D8D5C8]">
+          🛍️
+        </div>
+        <div>
+          <h3 class="text-xl font-normal font-serif text-[#2A2A24]">Confirm Order</h3>
+          <p class="text-xs text-[#66665C]">Deliver directly via WhatsApp</p>
+        </div>
+      </div>
+
+      <!-- QUANTITY SELECTOR CONTAINER -->
+      <div class="bg-[#F4F3EB] border border-[#E5E3DC] rounded-2xl p-3 mb-4 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-[#2A2A24] uppercase block">Select Quantity</span>
+          <span id="order-stock-notice" class="text-[11px] font-semibold text-[#5A5A40]">50 units available</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="qty-minus-btn" class="w-9 h-9 bg-white border border-[#E5E3DC] hover:bg-[#E5E3DC] active:scale-95 text-[#2A2A24] font-black rounded-xl flex items-center justify-center text-base cursor-pointer shadow-2xs transition-all">-</button>
+          <input type="number" id="order-qty-input" value="1" min="1" class="w-14 text-center bg-white border border-[#E5E3DC] rounded-xl py-1.5 font-extrabold text-sm text-[#2A2A24] focus:outline-none focus:ring-2 focus:ring-[#5A5A40]" />
+          <button type="button" id="qty-plus-btn" class="w-9 h-9 bg-white border border-[#E5E3DC] hover:bg-[#E5E3DC] active:scale-95 text-[#2A2A24] font-black rounded-xl flex items-center justify-center text-base cursor-pointer shadow-2xs transition-all">+</button>
+        </div>
+      </div>
+
+      <!-- BILL SUMMARY BREAKDOWN -->
+      <div class="bg-[#F7F6F0] border border-[#E5E3DC] rounded-2xl p-4 mb-5 space-y-1.5 text-sm">
+        <div class="font-bold font-serif text-[#2A2A24] border-b border-[#E5E3DC] pb-1.5 line-clamp-1" id="order-prod-title">
+          Product Name
+        </div>
+        <div class="flex justify-between text-[#66665C] text-xs pt-1">
+          <span>Price per unit:</span>
+          <span id="order-unit-price" class="font-semibold text-[#2A2A24]">Rs. 0</span>
+        </div>
+        <div class="flex justify-between text-[#66665C] text-xs">
+          <span>Products Subtotal (<span id="order-qty-display">1</span> x <span id="order-unit-price-sub">Rs. 0</span>):</span>
+          <span id="order-prod-subtotal" class="font-semibold text-[#2A2A24]">Rs. 0</span>
+        </div>
+        <div class="flex justify-between text-[#66665C] text-xs">
+          <span>Delivery Charges (Flat Rate):</span>
+          <span id="order-prod-delivery" class="font-semibold text-[#2A2A24]">Rs. 0</span>
+        </div>
+        <div class="flex justify-between text-[#5A5A40] font-black text-base border-t border-[#E5E3DC] pt-2">
+          <span>Total Bill:</span>
+          <span id="order-prod-total">Rs. 0</span>
+        </div>
+      </div>
+
+      <!-- FORM FIELDS -->
+      <form id="order-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Customer Name *</label>
+          <input 
+            type="text" 
+            id="cust-name" 
+            required 
+            placeholder="e.g. Haroon Ahmed" 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Phone Number *</label>
+          <input 
+            type="text" 
+            id="cust-phone" 
+            required 
+            placeholder="e.g. 0300 1234567" 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Complete Delivery Address *</label>
+          <textarea 
+            id="cust-address" 
+            required 
+            rows="3" 
+            placeholder="e.g. House #12, Street 4, Sector F-8/1, Islamabad" 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>💬 Order via WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

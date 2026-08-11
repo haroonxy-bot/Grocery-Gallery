@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Grocery Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#FDFCF9] text-[#2A2A24] font-sans antialiased min-h-screen flex selection:bg-[#5A5A40] selection:text-white">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="w-64 bg-[#2D2D22] text-[#B5B3A5] hidden md:flex flex-col justify-between shrink-0 border-r border-[#3F3F2D] sticky top-0 h-screen">
+    <div>
+      <!-- LOGO AREA -->
+      <div class="p-6 border-b border-[#3F3F2D] flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#5A5A40] text-white rounded-xl flex items-center justify-center text-xl font-black shadow-md border border-[#6E6E50]">
+          🛒
+        </div>
+        <div>
+          <span class="text-lg font-bold font-serif text-white tracking-tight block leading-none">Grocery<span class="text-[#D4A373]">Gallery</span></span>
+          <span class="text-[10px] font-bold text-[#828073] uppercase tracking-wider">Admin Panel</span>
+        </div>
+      </div>
+
+      <!-- SIDEBAR NAV -->
+      <nav class="p-4 space-y-1 text-sm font-semibold">
+        <a href="#dashboard-overview" class="flex items-center gap-3 px-4 py-3 bg-[#5A5A40] text-white rounded-xl transition-colors shadow-xs">
+          <span>📊</span> Dashboard Overview
+        </a>
+        <a href="#products-table-section" class="flex items-center gap-3 px-4 py-3 hover:bg-[#3F3F2D] hover:text-white rounded-xl transition-colors">
+          <span>📦</span> All Products
+        </a>
+        <button id="open-add-modal-btn" class="w-full text-left flex items-center gap-3 px-4 py-3 hover:bg-[#3F3F2D] hover:text-white rounded-xl transition-colors cursor-pointer">
+          <span>➕</span> Add Product
+        </button>
+        <a href="#orders-info-section" class="flex items-center gap-3 px-4 py-3 hover:bg-[#3F3F2D] hover:text-white rounded-xl transition-colors">
+          <span>💬</span> Orders Information
+        </a>
+        <a href="#admin-settings-section" class="flex items-center gap-3 px-4 py-3 hover:bg-[#3F3F2D] hover:text-white rounded-xl transition-colors">
+          <span>⚙️</span> Settings
+        </a>
+        <button id="reset-demo-btn" class="w-full text-left flex items-center gap-3 px-4 py-3 hover:bg-[#D4A373]/20 text-[#D4A373] rounded-xl transition-colors cursor-pointer mt-4 border border-[#D4A373]/30">
+          <span>🔄</span> Reset Demo Products
+        </button>
+      </nav>
+    </div>
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="p-4 border-t border-[#3F3F2D]">
+      <div class="flex items-center justify-between bg-[#3F3F2D] p-3 rounded-xl mb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 bg-[#5A5A40] text-white rounded-lg flex items-center justify-center font-bold text-xs border border-[#6E6E50]">
+            HA
+          </div>
+          <div>
+            <span class="text-xs font-bold text-white block leading-tight">Haroon (Admin)</span>
+            <span class="text-[10px] text-[#D4A373]">Online</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="admin-logout-btn" class="w-full bg-red-500/10 hover:bg-red-500/20 text-red-300 font-bold py-2.5 px-4 rounded-xl border border-red-500/30 text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
+        <span>🚪 Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main class="flex-1 min-w-0 overflow-y-auto">
+    
+    <!-- TOP BAR -->
+    <header class="bg-white border-b border-[#E5E3DC] px-6 py-4 flex items-center justify-between sticky top-0 z-30 shadow-xs">
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl font-normal font-serif text-[#2A2A24]">Admin Control Center</h1>
+        <span class="bg-[#E8E8DF] text-[#5A5A40] text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-[#D8D5C8]">
+          Frontend Prototype Mode
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="index.html" target="_blank" class="bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] font-semibold text-xs py-2 px-3.5 rounded-xl transition-colors flex items-center gap-1.5 border border-[#E5E3DC]">
+          <span>🌐 View Customer Website</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="p-6 space-y-8 max-w-7xl mx-auto">
+
+      <!-- ==================== STATS OVERVIEW CARDS ==================== -->
+      <section id="dashboard-overview" class="space-y-4">
+        <h2 class="text-lg font-normal font-serif text-[#2A2A24] flex items-center gap-2">
+          <span>📈</span> Inventory Overview
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- Total Products -->
+          <div class="bg-white p-5 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-xs font-bold text-[#66665C] uppercase tracking-wider block">Total Products</span>
+            <span id="stat-total" class="text-3xl font-normal font-serif text-[#2A2A24] mt-2 block">0</span>
+          </div>
+          <!-- Total Stock -->
+          <div class="bg-white p-5 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-xs font-bold text-[#66665C] uppercase tracking-wider block">📦 Total Stock</span>
+            <span id="stat-stock-total" class="text-3xl font-extrabold text-[#5A5A40] mt-2 block">0</span>
+          </div>
+          <!-- Low Stock -->
+          <div class="bg-white p-5 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-xs font-bold text-[#66665C] uppercase tracking-wider block">⚠️ Low Stock</span>
+            <span id="stat-low-stock" class="text-3xl font-extrabold text-amber-700 mt-2 block">0</span>
+          </div>
+          <!-- Out of Stock -->
+          <div class="bg-white p-5 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-xs font-bold text-[#66665C] uppercase tracking-wider block">🚫 Out of Stock</span>
+            <span id="stat-out-of-stock" class="text-3xl font-extrabold text-red-700 mt-2 block">0</span>
+          </div>
+          <!-- Fruits -->
+          <div class="bg-white p-4 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-[11px] font-bold text-[#66665C] uppercase tracking-wider block">🍎 Fruits</span>
+            <span id="stat-fruits" class="text-2xl font-extrabold text-[#5A5A40] mt-1 block">0</span>
+          </div>
+          <!-- Vegetables -->
+          <div class="bg-white p-4 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-[11px] font-bold text-[#66665C] uppercase tracking-wider block">🥦 Vegetables</span>
+            <span id="stat-vegetables" class="text-2xl font-extrabold text-[#5A5A40] mt-1 block">0</span>
+          </div>
+          <!-- Drinks -->
+          <div class="bg-white p-4 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-[11px] font-bold text-[#66665C] uppercase tracking-wider block">🥤 Drinks</span>
+            <span id="stat-drinks" class="text-2xl font-extrabold text-[#5A5A40] mt-1 block">0</span>
+          </div>
+          <!-- Snacks -->
+          <div class="bg-white p-4 rounded-2xl border border-[#E5E3DC] shadow-2xs">
+            <span class="text-[11px] font-bold text-[#66665C] uppercase tracking-wider block">🍪 Snacks & Groceries</span>
+            <span id="stat-snacks-groceries" class="text-2xl font-extrabold text-[#5A5A40] mt-1 block">0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PRODUCT MANAGEMENT TABLE ==================== -->
+      <section id="products-table-section" class="bg-white rounded-2xl border border-[#E5E3DC] shadow-xs p-6 space-y-4">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E3DC]">
+          <div>
+            <h2 class="text-xl font-normal font-serif text-[#2A2A24]">Product Inventory Table</h2>
+            <p class="text-xs text-[#66665C] mt-0.5">Manage live prices, categories, delivery charges & images</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <input 
+              type="text" 
+              id="admin-table-search" 
+              placeholder="Filter by name..." 
+              class="bg-[#F4F3EB] border border-[#E5E3DC] text-xs text-[#2A2A24] rounded-xl px-3.5 py-2.5 focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none w-48 sm:w-64"
+            />
+            <button 
+              onclick="openProductModal()"
+              class="bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            >
+              <span>➕ Add Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- RESPONSIVE TABLE -->
+        <div class="overflow-x-auto responsive-table">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#F7F6F0] text-[#66665C] uppercase text-[11px] font-bold tracking-wider border-b border-[#E5E3DC]">
+                <th class="py-3.5 px-4">Image</th>
+                <th class="py-3.5 px-4">Product Name</th>
+                <th class="py-3.5 px-4">Category</th>
+                <th class="py-3.5 px-4">Stock</th>
+                <th class="py-3.5 px-4">Selling Price</th>
+                <th class="py-3.5 px-4">Delivery Charge</th>
+                <th class="py-3.5 px-4">WhatsApp</th>
+                <th class="py-3.5 px-4">Delivery Option</th>
+                <th class="py-3.5 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-product-tbody">
+              <!-- Rendered via admin_dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ==================== ORDERS INFORMATION SECTION ==================== -->
+      <section id="orders-info-section" class="bg-white rounded-2xl border border-[#E5E3DC] shadow-xs p-6 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-[#E8E8DF] text-[#5A5A40] rounded-xl flex items-center justify-center font-bold text-lg border border-[#D8D5C8]">
+            💬
+          </div>
+          <div>
+            <h2 class="text-lg font-normal font-serif text-[#2A2A24]">Orders Information & WhatsApp Workflow</h2>
+            <p class="text-xs text-[#66665C]">Direct serverless ordering dispatch architecture</p>
+          </div>
+        </div>
+
+        <div class="bg-[#F7F6F0] border border-[#E5E3DC] rounded-2xl p-5 text-sm text-[#2A2A24] leading-relaxed space-y-2">
+          <p class="font-bold text-[#5A5A40]">How Order Processing Works in Grocery Gallery:</p>
+          <p>
+            When a customer clicks <strong>ORDER NOW</strong> on the storefront, enters their name and delivery address, and confirms their order, the order details are dynamically constructed into a pre-formatted WhatsApp message containing the product name, PKR total calculation, and customer address.
+          </p>
+          <p>
+            The order is dispatched directly to the WhatsApp number associated with that product. This provides zero backend delay, maximum customer privacy, and direct instant communication!
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================== ADMIN ACCOUNT & SECURITY SETTINGS SECTION ==================== -->
+      <section id="admin-settings-section" class="bg-white rounded-2xl border border-[#E5E3DC] shadow-xs p-6 space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-[#E5E3DC]">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-[#E8E8DF] text-[#5A5A40] rounded-xl flex items-center justify-center font-bold text-lg border border-[#D8D5C8]">
+              ⚙️
+            </div>
+            <div>
+              <h2 class="text-xl font-normal font-serif text-[#2A2A24]">Admin Account Security</h2>
+              <p class="text-xs text-[#66665C] mt-0.5">Manage administrator credentials stored securely in LocalStorage</p>
+            </div>
+          </div>
+          <div class="bg-[#F7F6F0] border border-[#E5E3DC] px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#66665C]">
+            Current Username: <span id="current-admin-username-display" class="font-bold text-[#5A5A40]">HAROON</span>
+          </div>
+        </div>
+
+        <form id="admin-settings-form" class="space-y-4 max-w-2xl">
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">New Admin Username</label>
+            <input 
+              type="text" 
+              id="settings-new-username" 
+              placeholder="Enter new username (min 3 characters)" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            />
+            <p class="text-[11px] text-[#66665C] mt-1">Leave blank if you only want to change your password.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Current Password</label>
+              <div class="relative">
+                <input 
+                  type="password" 
+                  id="settings-current-pass" 
+                  placeholder="Required for password change" 
+                  class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl pl-3 pr-8 py-2.5 text-xs focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+                />
+                <button type="button" class="toggle-settings-pass absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#66665C] cursor-pointer" data-target="settings-current-pass">🙈</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">New Password</label>
+              <div class="relative">
+                <input 
+                  type="password" 
+                  id="settings-new-pass" 
+                  placeholder="Min 6 characters" 
+                  class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl pl-3 pr-8 py-2.5 text-xs focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+                />
+                <button type="button" class="toggle-settings-pass absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#66665C] cursor-pointer" data-target="settings-new-pass">🙈</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Confirm New Password</label>
+              <div class="relative">
+                <input 
+                  type="password" 
+                  id="settings-confirm-pass" 
+                  placeholder="Repeat new password" 
+                  class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl pl-3 pr-8 py-2.5 text-xs focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+                />
+                <button type="button" class="toggle-settings-pass absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#66665C] cursor-pointer" data-target="settings-confirm-pass">🙈</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button 
+              type="submit" 
+              class="bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-extrabold py-3 px-6 rounded-xl shadow-md transition-all text-xs cursor-pointer inline-flex items-center gap-2"
+            >
+              <span>🔒 Update Admin Account</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="pt-6 border-t border-[#E5E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-sm text-[#2A2A24]">Reset Credentials to Defaults</h4>
+            <p class="text-xs text-[#66665C] mt-0.5">Restore original default login credentials (Username: HAROON, Password: 123)</p>
+          </div>
+          <button 
+            type="button" 
+            id="reset-admin-creds-btn"
+            class="bg-red-50 hover:bg-red-100 text-red-700 font-bold py-2.5 px-4 rounded-xl border border-red-200 text-xs transition-colors cursor-pointer whitespace-nowrap self-start sm:self-auto"
+          >
+            Reset Admin Credentials
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== ADD / EDIT PRODUCT MODAL ==================== -->
+  <div id="product-form-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button class="close-admin-modal absolute top-4 right-4 w-9 h-9 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] rounded-full flex items-center justify-center font-bold text-lg cursor-pointer">
+        ✕
+      </button>
+
+      <h3 id="modal-form-title" class="text-xl font-normal font-serif text-[#2A2A24] mb-4">Add New Product</h3>
+
+      <form id="product-form" class="space-y-4 text-sm">
+        
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Product Name *</label>
+          <input 
+            type="text" 
+            id="product-name" 
+            required 
+            placeholder="e.g. Fresh Sindhri Mangoes (1kg)" 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Category *</label>
+            <select 
+              id="product-category" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            >
+              <option value="Fruits">🍎 Fruits</option>
+              <option value="Vegetables">🥦 Vegetables</option>
+              <option value="Drinks">🥤 Drinks</option>
+              <option value="Snacks">🍪 Snacks</option>
+              <option value="Groceries">🛒 Groceries</option>
+            </select>
+          </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Selling Price (PKR) *</label>
+            <input 
+              type="number" 
+              id="product-price" 
+              required 
+              min="0"
+              placeholder="e.g. 450" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Available Stock (Units) *</label>
+            <input 
+              type="number" 
+              id="product-stock" 
+              required 
+              min="0"
+              placeholder="e.g. 50" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Delivery Charge (PKR) *</label>
+            <input 
+              type="number" 
+              id="product-delivery" 
+              required 
+              min="0"
+              placeholder="e.g. 100" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Delivery Option *</label>
+            <select 
+              id="product-option" 
+              class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+            >
+              <option value="Cash on Delivery">Cash on Delivery</option>
+              <option value="Online Payment">Online Payment</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">WhatsApp Number *</label>
+          <input 
+            type="text" 
+            id="product-whatsapp" 
+            required 
+            placeholder="e.g. 923001234567" 
+            class="w-full bg-[#F4F3EB] border border-[#E5E3DC] rounded-xl px-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-[#5A5A40] focus:outline-none transition-all"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#2A2A24] uppercase mb-1">Product Image Upload (FileReader API)</label>
+          <input 
+            type="file" 
+            id="product-image-file" 
+            accept="image/*" 
+            class="w-full text-xs text-[#66665C] file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#E8E8DF] file:text-[#5A5A40] hover:file:bg-[#D8D5C8] cursor-pointer"
+          />
+          <div class="mt-3">
+            <img id="image-preview" src="" alt="Preview" class="hidden w-28 h-28 object-cover rounded-xl border border-[#E5E3DC] shadow-2xs" />
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          id="form-submit-btn"
+          class="w-full bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg transition-all text-sm cursor-pointer mt-2"
+        >
+          Save Product
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== DELETE CONFIRMATION MODAL ==================== -->
+  <div id="delete-confirm-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4 border border-[#E5E3DC]">
+      <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-2xl mx-auto font-bold">
+        ⚠️
+      </div>
+      <h3 class="text-xl font-normal font-serif text-[#2A2A24]">Delete Product?</h3>
+      <p class="text-xs text-[#66665C]">Are you sure you want to delete this product? This action will remove it from the customer storefront.</p>
+      
+      <div class="flex gap-3 pt-2">
+        <button class="close-admin-modal flex-1 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer border border-[#E5E3DC]">
+          Cancel
+        </button>
+        <button id="confirm-delete-btn" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer shadow-md">
+          Yes, Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== RESET DEMO CONFIRMATION MODAL ==================== -->
+  <div id="reset-confirm-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4 border border-[#E5E3DC]">
+      <div class="w-14 h-14 bg-[#F8EFE4] text-[#8C5E32] rounded-2xl flex items-center justify-center text-2xl mx-auto font-bold border border-[#EBD5C1]">
+        🔄
+      </div>
+      <h3 class="text-xl font-normal font-serif text-[#2A2A24]">Reset Demo Products?</h3>
+      <p class="text-xs text-[#66665C]">This will overwrite current inventory and reload the 24 default Pakistani demo products for university presentation.</p>
+      
+      <div class="flex gap-3 pt-2">
+        <button class="close-admin-modal flex-1 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer border border-[#E5E3DC]">
+          Cancel
+        </button>
+        <button id="confirm-reset-btn" class="flex-1 bg-[#5A5A40] hover:bg-[#4A4A35] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer shadow-md">
+          Reset Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== RESET ADMIN CREDENTIALS CONFIRMATION MODAL ==================== -->
+  <div id="reset-creds-confirm-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4 border border-[#E5E3DC]">
+      <div class="w-14 h-14 bg-amber-100 text-amber-800 rounded-2xl flex items-center justify-center text-2xl mx-auto font-bold border border-amber-200">
+        🔑
+      </div>
+      <h3 class="text-xl font-normal font-serif text-[#2A2A24]">Reset Admin Credentials?</h3>
+      <p class="text-xs text-[#66665C]">Are you sure you want to restore the default login credentials? (Username: HAROON, Password: 123)</p>
+      
+      <div class="flex gap-3 pt-2">
+        <button class="close-admin-modal flex-1 bg-[#F4F3EB] hover:bg-[#E5E3DC] text-[#2A2A24] font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer border border-[#E5E3DC]">
+          Cancel
+        </button>
+        <button id="confirm-reset-creds-btn" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors cursor-pointer shadow-md">
+          Reset Credentials
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin_dashboard.js"></script>
+</body>
+</html>
